@@ -2,6 +2,7 @@ package com.zy.multiscrolltabledemo;
 
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import com.kelin.scrollablepanel.library.ScrollablePanel;
  * Created by ZhaoYue on 2019/2/26.
  */
 public class MyPanelAdapter extends PanelAdapter {
+    private static final String TAG = "MyPanelAdapter";
     @Override
     public int getRowCount() {
         return 20;
@@ -39,6 +41,9 @@ public class MyPanelAdapter extends PanelAdapter {
         if (row>column && column >0){
             h.titleTextView.setText("-");
         }
+        h.itemView.setOnClickListener((v)->{
+            Log.i(TAG, "onBindViewHolder: "+h.titleTextView.getText());
+        });
     }
 
     @Override
